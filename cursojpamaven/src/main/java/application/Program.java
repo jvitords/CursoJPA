@@ -26,8 +26,13 @@ public class Program {
 		em.persist(p4);
 		em.getTransaction().commit();*/ // finaliza a transação 
 		
-		Pessoa pessoa = em.find(Pessoa.class, 1);
-		System.out.println(pessoa);
+		//Pessoa p5 = em.find(Pessoa.class, 1); // filtro para encontrar um certo objeto
+		
+		Pessoa p6 = em.find(Pessoa.class, 6); // primeiramente monitorar ela para dps excluir
+		em.getTransaction().begin();
+		em.remove(p6);
+		em.getTransaction().commit();
+		
 		
 		System.out.println("Transação finalizada!!!");
 		em.close();
